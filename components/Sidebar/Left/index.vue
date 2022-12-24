@@ -62,7 +62,7 @@
             </div>
 
 
-            <div class="mt-14 space-y-3">
+            <div class="mt-8 space-y-3">
                 <SidebarLeftTab>
                     <template v-slot:icon>
                         <UserIcon />
@@ -101,7 +101,7 @@
             </div>
 
 
-            <div class="hidden xl:block mt-20 mx-auto">
+            <div class="hidden xl:block mt-12 mx-auto">
                 <UIButton liquid size="lg" @on-click="emits('onPost')">
                     <span class="font-bold text-xs">
                         Make Post

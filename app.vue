@@ -19,7 +19,7 @@
                     <!-- Main content -->
                     <main class="w-4/6 px-7 pt-8">
                         <!-- Search bar -->
-                        <div class="relative mb-16">
+                        <div class="mb-16 sticky top-0">
                             <div class="absolute flex items-center h-full pl-4 text-gray-600 cursor-pointer">
                                 <div class="w-4 h-4">
                                     <SearchIcon @click="handleSearch" />

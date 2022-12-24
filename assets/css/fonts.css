@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'MADEOkine';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/MADEOkine/MADEOkine-Regular') format('otf');
+}
+
+@font-face {
+  font-family: 'Roland';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Roland/Roland-Regular') format('ttf');
+}

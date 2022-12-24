@@ -1,5 +1,5 @@
 <template>
-    <div clas="flex flex-col">
+    <div clas="flex flex-col sticky top-9">
 
         <!-- Preview Card : What's happening -->
         <SidebarRightPreviewCard title="You Might Like">

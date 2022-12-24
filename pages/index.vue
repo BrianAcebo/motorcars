@@ -40,7 +40,7 @@ onBeforeMount(async () => {
 
 function handleFormSuccess(post) {
     navigateTo({
-        path: `/status/${post.id}`
+        path: `/post/${post.id}`
     })
 }
 

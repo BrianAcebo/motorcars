@@ -17,8 +17,8 @@ module.exports = {
     theme: {
 
         fontFamily: {
-            heading: ["Roland"],
-            body: ["MADE Okine Sans PERSONAL USE"],
+            heading: ["DM Sans"],
+            body: ["Poppins"],
         },
 
         screens: {

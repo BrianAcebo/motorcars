@@ -1,5 +1,4 @@
-@include font-face( MADEOkine, '~/assets/fonts/MADEOkine/MADEOkine-Regular', 400, normal, otf);
-@include font-face( Roland, '~/assets/fonts/Roland/Roland-Regular', 400, normal, ttf);
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,5 +18,5 @@
 
 html,
 body {
-    font-family: 'MADE Okine Sans PERSONAL USE', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
