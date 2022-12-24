@@ -32,7 +32,6 @@ export default defineEventHandler(async (event) => {
         }
     }
 
-    console.log("3")
     const doesThePasswordMatch = await bcrypt.compare(password, user.password)
 
     if (!doesThePasswordMatch) {
