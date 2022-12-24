@@ -66,6 +66,7 @@
 
         data.loading = true
         try {
+            console.log("logging in")
             await login({
                 usernameOrEmail: data.usernameOrEmail,
                 password: data.password
