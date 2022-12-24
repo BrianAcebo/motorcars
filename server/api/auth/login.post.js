@@ -17,9 +17,11 @@ export default defineEventHandler(async (event) => {
         }))
     }
 
+    console.log("1")
     let user = await getUserByUsername(usernameOrEmail)
 
     if (!user) {
+        console.log("2")
         user = await getUserByEmail(usernameOrEmail)
 
         if (!user) {
@@ -30,6 +32,7 @@ export default defineEventHandler(async (event) => {
         }
     }
 
+    console.log("3")
     const doesThePasswordMatch = await bcrypt.compare(password, user.password)
 
     if (!doesThePasswordMatch) {
