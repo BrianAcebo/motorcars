@@ -19,6 +19,7 @@ export default defineEventHandler(async (event) => {
 
     console.log("1")
     let user = await getUserByUsername(usernameOrEmail)
+    console.log(user)
 
     if (!user) {
         console.log("2")
