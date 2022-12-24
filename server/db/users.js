@@ -14,15 +14,11 @@ export const createUser = (userData) => {
 
 
 export const getUserByUsername = (username) => {
-    return {
-        "dummy": "lololo",
-        "password": "lol"
-    }
-    // return prisma.user.findUnique({
-    //     where: {
-    //         username
-    //     }
-    // })
+    return prisma.user.findUnique({
+        where: {
+            username
+        }
+    })
 }
 
 export const getUserByEmail = (email) => {
