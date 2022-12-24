@@ -7,24 +7,46 @@
             <!-- App -->
             <div v-else-if="user" clas="min-h-full">
 
-                <div class="grid grid-cols-12 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
+                <div class="flex justify-around mx-auto lg:max-w-[1440px] lg:px-6">
 
                     <!-- Left sidebar -->
-                    <div class="hidden md:block xs-col-span-1 xl:col-span-2">
+                    <div class="hidden md:block w-1/6">
                         <div class="sticky top-0">
-                            <SidebarLeft :user="user" @on-tweet="handleOpenTweetModal" @on-logout="handleUserLogout" />
+                            <SidebarLeft :user="user" @on-post="handleOpenPostModal" @on-logout="handleUserLogout" />
                         </div>
                     </div>
 
                     <!-- Main content -->
-                    <main class="col-span-12 md:col-span-8 xl:col-span-6">
-                        <router-view />
+                    <main class="w-4/6 px-7 pt-8">
+                        <!-- Search bar -->
+                        <div class="relative mb-16">
+                            <div class="absolute flex items-center h-full pl-4 text-gray-600 cursor-pointer">
+                                <div class="w-4 h-4">
+                                    <SearchIcon @click="handleSearch" />
+                                </div>
+                            </div>
+                            <input 
+                                v-model="search"
+                                class="flex items-center w-full pl-12 text-sm font-normal text-black bg-gray-200 border border-gray-200 rounded-full shadow dark:text-gray-100 dark:bg-dim-400 dark:border-dim-400 focus:bg-gray-100 dark:focus:bg-dim-900 focus:outline-none focus:border focus:border-blue-200 h-9"
+                                placeholder="Search..." type="text"
+                            >
+                        </div>
+
+                        <div class="flex justify-around">
+                            <div class="w-4/6 mr-7">
+                                <router-view />
+                            </div>
+
+                            <div class="w-2/6">
+                                <SidebarNews />
+                            </div>
+                        </div>
                     </main>
 
                     <!-- Right Sidebar -->
-                    <div class="hidden col-span-12 md:block xl:col-span-4 md:col-span-3">
+                    <div class="hidden col-span-12 md:block w-1/4 mt-7">
                         <div class="sticky top-0">
-                            <SidebarRight />
+                            <SidebarRight :user="user" />
                         </div>
                     </div>
 
@@ -36,56 +58,68 @@
 
             <AuthPage v-else />
 
-
-            <UIModal :isOpen="postTweetModal" @on-close="handleModalClose">
-                <TweetForm :replyTo="replyTweet" showReply :user="user" @onSuccess="handleFormSuccess" />
+            <UIModal :isOpen="postModal" @on-close="handleModalClose">
+                <PostForm :replyTo="replyPost" showReply :user="user" @onSuccess="handleFormSuccess" />
             </UIModal>
 
         </div>
 
     </div>
 </template>
+
 <script setup>
-const darkMode = ref(false)
-const { useAuthUser, initAuth, useAuthLoading, logout } = useAuth()
-const isAuthLoading = useAuthLoading()
-const { closePostTweetModal, usePostTweetModal, openPostTweetModal, useReplyTweet } = useTweets()
-const user = useAuthUser()
+    import '@/assets/css/main.css'
+    import { SearchIcon } from '@heroicons/vue/outline';
 
-const postTweetModal = usePostTweetModal()
-const emitter = useEmitter()
-const replyTweet = useReplyTweet()
+    const darkMode = ref(true)
+    const { useAuthUser, initAuth, useAuthLoading, logout } = useAuth()
+    const isAuthLoading = useAuthLoading()
+    const { closePostModal, usePostModal, openPostModal, useReplyPost } = usePosts()
+    const user = useAuthUser()
 
-emitter.$on('replyTweet', (tweet) => {
-    openPostTweetModal(tweet)
-})
+    const postModal = usePostModal()
+    const emitter = useEmitter()
+    const replyPost = useReplyPost()
+    const search = ref('')
 
-emitter.$on('toggleDarkMode', () => {
-    darkMode.value = !darkMode.value
-})
-
-onBeforeMount(() => {
-    initAuth()
-})
-
-function handleFormSuccess(tweet) {
-    closePostTweetModal()
-
-    navigateTo({
-        path: `/status/${tweet.id}`
+    emitter.$on('replyPost', (post) => {
+        openPostModal(post)
     })
-}
 
-function handleModalClose() {
-    closePostTweetModal()
-}
+    emitter.$on('toggleDarkMode', () => {
+        darkMode.value = !darkMode.value
+    })
 
-function handleOpenTweetModal() {
-    openPostTweetModal(null)
-}
+    onBeforeMount(() => {
+        initAuth()
+    })
 
-function handleUserLogout() {
-    logout()
-}
+    function handleFormSuccess(post) {
+        closePostModal()
 
+        navigateTo({
+            path: `/status/${post.id}`
+        })
+    }
+
+    function handleModalClose() {
+        closePostModal()
+    }
+
+    function handleOpenPostModal() {
+        openPostModal(null)
+    }
+
+    function handleUserLogout() {
+        logout()
+    }
+
+    function handleSearch() {
+        useRouter().push({
+            path: '/search',
+            query: {
+                q: search.value
+            }
+        })
+    }
 </script>

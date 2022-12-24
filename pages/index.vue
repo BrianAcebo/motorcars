@@ -3,24 +3,24 @@
         <MainSection title="Home" :loading="loading">
 
             <Head>
-                <Title>Home / Twitter</Title>
+                <Title>Home | Motorcars</Title>
             </Head>
 
-            <div class="border-b" :class="twitterBorderColor">
-                <TweetForm :user="user" @on-success="handleFormSuccess" />
+            <div class="border-b" :class="mainBorderColor">
+                <PostForm :user="user" @on-success="handleFormSuccess" />
             </div>
 
-            <TweetListFeed :tweets="homeTweets" />
+            <PostListFeed :posts="homePosts" />
 
         </MainSection>
     </div>
 </template>
 <script setup>
-const { twitterBorderColor } = useTailwindConfig()
-const { getTweets } = useTweets()
+const { mainBorderColor } = useTailwindConfig()
+const { getPosts } = usePosts()
 
 const loading = ref(false)
-const homeTweets = ref([])
+const homePosts = ref([])
 const { useAuthUser } = useAuth()
 
 const user = useAuthUser()
@@ -28,9 +28,9 @@ const user = useAuthUser()
 onBeforeMount(async () => {
     loading.value = true
     try {
-        const { tweets } = await getTweets()
+        const { posts } = await getPosts()
 
-        homeTweets.value = tweets
+        homePosts.value = posts
     } catch (error) {
         console.log(error)
     } finally {
@@ -38,9 +38,9 @@ onBeforeMount(async () => {
     }
 })
 
-function handleFormSuccess(tweet) {
+function handleFormSuccess(post) {
     navigateTo({
-        path: `/status/${tweet.id}`
+        path: `/status/${post.id}`
     })
 }
 

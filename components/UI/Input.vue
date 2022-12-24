@@ -1,11 +1,14 @@
 <template>
     <div>
-        <label for="" v-if="props.label" class="block pl-3 ml-px text-sm font-medium text-gray-700">{{ props.label
-        }}</label>
+        <label for="" v-if="props.label" class="font-heading block ml-px mb-3 text-sm font-medium dark:text-white text-gray-700">
+            {{ props.label}}
+        </label>
         <div class="mt-1">
-            <input :value="props.modelValue" @input="event => emits('update:modelValue', event.target.value)"
-                class="block w-full px-4 border-gray-300 rounded-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                :type="props.type" :placeholder="props.placeholder">
+            <input 
+                :value="props.modelValue" @input="event => emits('update:modelValue', event.target.value)"
+                class="font-body block w-full px-6 py-3 border-gray-300 dark:border-white dark:bg-transparent dark:text-white focus:ring-0 focus:border-blue-500 sm:text-sm"
+                :type="props.type" :placeholder="props.placeholder"
+            >
         </div>
     </div>
 </template>

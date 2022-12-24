@@ -20,14 +20,36 @@ export default () => {
         authLoading.value = value
     }
 
-    const login = ({ username, password }) => {
+    const login = ({ usernameOrEmail, password }) => {
         return new Promise(async (resolve, reject) => {
             try {
                 const data = await $fetch('/api/auth/login', {
                     method: 'POST',
                     body: {
-                        username,
+                        usernameOrEmail,
                         password
+                    }
+                })
+
+                setToken(data.access_token)
+                setUser(data.user)
+
+                resolve(true)
+            } catch (error) {
+                reject(error)
+            }
+        })
+    }
+
+    const register = ({ email, password, repeatPassword }) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const data = await $fetch('/api/auth/register', {
+                    method: 'POST',
+                    body: {
+                        email,
+                        password,
+                        repeatPassword
                     }
                 })
 
@@ -121,6 +143,7 @@ export default () => {
 
     return {
         login,
+        register,
         useAuthUser,
         useAuthToken,
         initAuth,

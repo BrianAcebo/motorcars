@@ -3,20 +3,18 @@
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
   provider             = "mongodb"
   url                  = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
 }
 
 model User {
-  id           String  @id @default(auto()) @map("_id") @db.ObjectId
-  email        String
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  email        String   @unique
   name         String?
-  username     String  @unique
+  username     String?  @unique
   password     String
   profileImage String?
 
@@ -26,8 +24,8 @@ model User {
   // Refresh token
   refreshToken RefreshToken[]
 
-  // Tweet
-  tweet Tweet[]
+  // Posts
+  posts Post[]
 
   // MediaFiles
   mediaFiles MediaFile[]
@@ -44,7 +42,7 @@ model RefreshToken {
   user   User   @relation(fields: [userId], references: [id])
 }
 
-model Tweet {
+model Post {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   text String
 
@@ -56,8 +54,8 @@ model Tweet {
   authorId String @db.ObjectId
 
   replyToId String? @db.ObjectId
-  replyTo   Tweet?  @relation("replies", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  replies   Tweet[] @relation("replies")
+  replyTo   Post?  @relation("replies", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies   Post[] @relation("replies")
 
   // MediaFiles
   mediaFiles MediaFile[]
@@ -75,7 +73,7 @@ model MediaFile {
   user   User   @relation(fields: [userId], references: [id])
   userId String @db.ObjectId
 
-  // Tweets
-  tweet   Tweet?  @relation(fields: [tweetId], references: [id])
-  tweetId String? @db.ObjectId
+  // Posts
+  post   Post?  @relation(fields: [postId], references: [id])
+  postId String? @db.ObjectId
 }

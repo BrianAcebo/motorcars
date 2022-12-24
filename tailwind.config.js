@@ -16,6 +16,11 @@ module.exports = {
 
     theme: {
 
+        fontFamily: {
+            heading: ["Roland"],
+            body: ["MADE Okine Sans PERSONAL USE"],
+        },
+
         screens: {
             xs: "614px",
             sm: "1002px",
@@ -39,6 +44,7 @@ module.exports = {
                     800: "#162d40",
                     900: "#15202b",
                 },
+                red: '#FF5C5C'
             },
 
         },

@@ -1,0 +1,23 @@
+@include font-face( MADEOkine, '~/assets/fonts/MADEOkine/MADEOkine-Regular', 400, normal, otf);
+@include font-face( Roland, '~/assets/fonts/Roland/Roland-Regular', 400, normal, ttf);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+}
+
+
+html,
+body {
+    font-family: 'MADE Okine Sans PERSONAL USE', sans-serif;
+}

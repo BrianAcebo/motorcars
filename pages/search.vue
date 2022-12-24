@@ -7,33 +7,33 @@
             </Head>
 
 
-            <TweetListFeed :tweets="searchTweets" />
+            <PostListFeed :posts="searchPosts" />
 
         </MainSection>
     </div>
 </template>
 <script setup>
-const { getTweets: getTweetsComposable } = useTweets()
+const { getPosts: getPostsComposable } = usePosts()
 
 const loading = ref(false)
-const searchTweets = ref([])
+const searchPosts = ref([])
 const searchQuery = useRoute().query.q
 
-watch(() => useRoute().fullPath, () => getTweets())
+watch(() => useRoute().fullPath, () => getPosts())
 
 
 onBeforeMount(() => {
-    getTweets()
+    getPosts()
 })
 
-async function getTweets() {
+async function getPosts() {
     loading.value = true
     try {
-        const { tweets } = await getTweetsComposable({
+        const { posts } = await getPostsComposable({
             query: searchQuery
         })
 
-        searchTweets.value = tweets
+        searchPosts.value = posts
     } catch (error) {
         console.log(error)
     } finally {

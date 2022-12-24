@@ -1,4 +1,4 @@
-import { getUserByUsername } from "../../db/users.js"
+import { getUserByUsername, getUserByEmail } from "../../db/users.js"
 import bcrypt from "bcrypt"
 import { generateTokens, sendRefreshToken } from "../../utils/jwt.js"
 import { userTransformer } from "~~/server/transformers/user.js"
@@ -8,22 +8,26 @@ import { sendError } from "h3"
 export default defineEventHandler(async (event) => {
     const body = await useBody(event)
 
-    const { username, password } = body
+    const { usernameOrEmail, password } = body
 
-    if (!username || !password) {
+    if (!usernameOrEmail || !password) {
         return sendError(event, createError({
             statusCode: 400,
             statusMessage: 'Ivalid params'
         }))
     }
 
-    const user = await getUserByUsername(username)
+    let user = await getUserByUsername(usernameOrEmail)
 
     if (!user) {
-        return sendError(event, createError({
-            statusCode: 400,
-            statusMessage: 'Username or password is invalid'
-        }))
+        user = await getUserByEmail(usernameOrEmail)
+
+        if (!user) {
+            return sendError(event, createError({
+                statusCode: 400,
+                statusMessage: "Sorry, user not found."
+            }))
+        }
     }
 
     const doesThePasswordMatch = await bcrypt.compare(password, user.password)
@@ -31,7 +35,7 @@ export default defineEventHandler(async (event) => {
     if (!doesThePasswordMatch) {
         return sendError(event, createError({
             statusCode: 400,
-            statusMessage: 'Username or password is invalid'
+            statusMessage: "Sorry, user not found."
         }))
     }
 
