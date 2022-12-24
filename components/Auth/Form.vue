@@ -15,7 +15,11 @@
 
 
             <UIButton @click="handleLogin" liquid :disabled="isButtonDisabled">
-                Login
+                <div v-if="data.loading" class="w-6 h-6 flex items-center justify-center">
+                    <UISpinner />
+                </div>
+
+                <span v-else>Login</span>
             </UIButton>
         </div>
 
@@ -32,7 +36,11 @@
 
 
             <UIButton @click="handleRegister" liquid :disabled="isButtonDisabled">
-                Sign Up
+                <div v-if="loading" class="w-6 h-6 flex items-center justify-center">
+                    <UISpinner />
+                </div>
+
+                <span v-else>Sign Up</span>
             </UIButton>
         </div>
 

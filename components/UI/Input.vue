@@ -7,7 +7,8 @@
             <input 
                 :value="props.modelValue" @input="event => emits('update:modelValue', event.target.value)"
                 class="font-body block w-full px-6 py-3 border-gray-300 dark:border-white dark:bg-transparent dark:text-white focus:ring-0 focus:border-blue-500 sm:text-sm"
-                :type="props.type" :placeholder="props.placeholder"
+                :type="props.type" 
+                :placeholder="props.placeholder"
             >
         </div>
     </div>

@@ -49,7 +49,8 @@ export default defineEventHandler(async (event) => {
     sendRefreshToken(event, refreshToken)
 
     return {
-        access_token: accessToken, user: userTransformer(user)
+        access_token: accessToken, 
+        user: userTransformer(user)
     }
 
 }) 
