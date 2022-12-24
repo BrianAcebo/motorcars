@@ -15,7 +15,7 @@ export const createUser = (userData) => {
 
 export const getUserByUsername = (username) => {
     return {
-        "dummy": "data",
+        "dummy": "lololo",
         "password": "lol"
     }
     // return prisma.user.findUnique({
