@@ -8,7 +8,7 @@
 
         <p v-if="data.formErrorMsg != ''" class="text-red text-center text-sm font-bold">{{ data.formErrorMsg }}</p>
 
-        <div v-if="data.showLoginForm" class="pt-5 space-y-6">
+        <div v-if="true" class="pt-5 space-y-6">
             <UIInput v-model="data.usernameOrEmail" label="Username or Email Address" placeholder="@Motorcars" />
 
             <UIInput label="Password" placeholder="ExamplePassword123" type="password" v-model="data.password" />

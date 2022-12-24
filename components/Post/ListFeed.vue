@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div v-if="isEmptyArray" class="p-4">
             <p class="text-center text-gray-500">
                 No posts
@@ -15,23 +14,22 @@
         >
             <PostItem :post="post" compact />
         </div>
-
     </div>
 </template>
+
 <script setup>
-const { mainBorderColor, defaultTransition } = useTailwindConfig()
+    const { mainBorderColor, defaultTransition } = useTailwindConfig()
 
-const props = defineProps({
-    posts: {
-        type: Array,
-        required: true
+    const props = defineProps({
+        posts: {
+            type: Array,
+            required: true
+        }
+    })
+
+    const isEmptyArray = computed(() => props.posts.length === 0)
+
+    function redirect(post) {
+        navigateTo(`/post/${post.id}`)
     }
-})
-
-const isEmptyArray = computed(() => props.posts.length === 0)
-
-function redirect(post) {
-    navigateTo(`/post/${post.id}`)
-}
-
 </script>

@@ -96,6 +96,8 @@
     const emitter = useEmitter()
     const { defaultTransition } = useTailwindConfig()
 
+    const emits = defineEmits(['onLogout'])
+
     const props = defineProps({
         user: {
             type: Object,

@@ -127,7 +127,7 @@
     import { TruckIcon, BellIcon, InboxIcon, UserGroupIcon, UserIcon, DotsCircleHorizontalIcon, PencilIcon, GlobeAltIcon, IdentificationIcon } from "@heroicons/vue/outline"
 
     const { defaultTransition } = useTailwindConfig()
-    const emits = defineEmits(['onPost', 'onLogout'])
+    const emits = defineEmits(['onPost'])
 
     const props = defineProps({
         user: {

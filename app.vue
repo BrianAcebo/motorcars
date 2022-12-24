@@ -12,7 +12,7 @@
                     <!-- Left sidebar -->
                     <div class="hidden md:block w-1/6">
                         <div class="sticky top-0">
-                            <SidebarLeft :user="user" @on-post="handleOpenPostModal" @on-logout="handleUserLogout" />
+                            <SidebarLeft :user="user" @on-post="handleOpenPostModal" />
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                     <!-- Right Sidebar -->
                     <div class="hidden col-span-12 md:block w-1/4 mt-7">
                         <div class="sticky top-0">
-                            <SidebarRight :user="user" />
+                            <SidebarRight :user="user" @on-logout="handleUserLogout" />
                         </div>
                     </div>
 

@@ -64,8 +64,9 @@
         }
     })
 
-    const showStats = computed(() => props.compact)
-    const size = computed(() => props.compact ? 3 : 5)
+    const showStats = false
+    //computed(() => props.compact)
+    const size = computed(() => props.compact ? 4 : 4)
 
     function generateRandomNumber() {
         return Math.floor(Math.random() * 100)

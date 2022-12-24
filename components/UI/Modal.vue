@@ -25,7 +25,6 @@
                         leave-to="opacity-0 scale-95"
                     >
                         <DialogPanel
-                            :style="darkClasses"
                             :class="{ 
                                 'bg-dim-700 dark': darkMode,
                                 'bg-white': !darkMode
@@ -58,8 +57,6 @@
     emitter.$on('toggleDarkMode', () => {
         darkMode.value = !darkMode.value
     })
-
-    const darkClasses = 'color: white!important;'
 
     const props = defineProps({
         isOpen: {
