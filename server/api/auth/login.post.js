@@ -17,15 +17,9 @@ export default defineEventHandler(async (event) => {
         }))
     }
 
-    console.log("1")
     let user = await getUserByUsername(usernameOrEmail)
-    return sendError(event, createError({
-        statusCode: 900,
-        statusMessage: user.dummy
-    }))
 
     if (!user) {
-        console.log("2")
         user = await getUserByEmail(usernameOrEmail)
 
         if (!user) {

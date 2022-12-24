@@ -21,7 +21,6 @@ export default () => {
     }
 
     const login = ({ usernameOrEmail, password }) => {
-        console.log("useAuthError")
         return new Promise(async (resolve, reject) => {
             try {
                 const data = await $fetch('/api/auth/login', {
