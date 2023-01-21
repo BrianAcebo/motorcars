@@ -17,7 +17,10 @@
                         class="flex justify-start bg-black bg-opacity-25 w-full xs:w-2/3 md:w-1/6 scrollbar-hide overflow-scroll h-screen top-0 fixed md:static z-50 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 dark:text-white"
                     >
                         <div :class="mainBorderColor" class="border-r sticky right-0 top-0 w-4/5 xs:w-full bg-white dark:bg-dim-900 p-4 md:p-0 scrollbar-hide overflow-scroll">
-                            <div class="lg:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-800 cursor-pointer" @click="toggleSidebar('left')">
+                            <div 
+                                @click="toggleSidebar('left')"
+                                class="lg:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-800 cursor-pointer"
+                            >
                                 <XIcon />
                             </div>
                             <SidebarLeft :user="user" />
@@ -77,7 +80,10 @@
                             :class="mainBorderColor" 
                             class="cursor-pointer border-l sticky right-0 top-0 w-4/5 xs:w-full bg-white dark:bg-dim-900 p-4 md:p-0 scrollbar-hide overflow-scroll"
                         >
-                            <div class="lg:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-400 cursor-pointer float-right">
+                            <div 
+                                @click="toggleSidebar('right')"
+                                class="lg:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-400 cursor-pointer float-right"
+                            >
                                 <XIcon />
                             </div>
                             <SidebarRight :user="user" @on-logout="handleUserLogout" />
