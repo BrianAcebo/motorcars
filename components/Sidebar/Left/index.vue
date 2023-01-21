@@ -1,8 +1,7 @@
 <template>
-    <div class="flex flex-col h-screen">
+    <div class="flex flex-col h-screen lg:pr-6 pr-0">
 
-
-        <div class="my-2 w-full" :class="defaultTransition">
+        <div class="my-0 sm:my-2 w-full" :class="defaultTransition">
             <nuxt-link to="/">
                 <div class="text-xs flex justify-start items-center dark:text-white font-heading font-bold uppercase">
                     <div class="w-20 h-20 mr-3">
@@ -13,7 +12,7 @@
             </nuxt-link>
         </div>
 
-        <div class="mt-8">
+        <div class="mt-2 sm:mt-8">
             <div class="space-y-3">
                 <SidebarLeftTab active>
                     <template v-slot:icon>
@@ -108,15 +107,6 @@
                     </span>
                 </UIButton>
             </div>
-
-            <div class="block xl:hidden">
-                <UIButton @on-click="emits('onPost')">
-                    <div class="w-6 h-6 font-bold">
-                        <PencilIcon />
-                    </div>
-                </UIButton>
-            </div>
-
         </div>
 
     </div>
@@ -127,6 +117,7 @@
     import { TruckIcon, BellIcon, InboxIcon, UserGroupIcon, UserIcon, DotsCircleHorizontalIcon, PencilIcon, GlobeAltIcon, IdentificationIcon } from "@heroicons/vue/outline"
 
     const { defaultTransition } = useTailwindConfig()
+
     const emits = defineEmits(['onPost'])
 
     const props = defineProps({

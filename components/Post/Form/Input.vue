@@ -1,15 +1,14 @@
 <template>
     <div>
         <div class="flex items-center flex-shrink-0 p-4 pb-0">
-
-            <div class="flex w-12 items-top">
-                <img :src="props.user?.profileImage" alt="" class="inline-block w-9 h-9 rounded-full">
+            <div class="flex w-9 items-top">
+                <img :src="props.user?.profileImage" alt="" class="inline-block w-7 h-7 xs:w-9 xs:h-9 rounded-full">
             </div>
 
             <div class="w-full flex items-center">
                 <textarea 
                     v-model="text"
-                    class="px-1 scrollbar-hide w-full h-10 text-base text-gray-900 placeholder:text-gray-400 bg-transparent border-0 dark:text-white focus:ring-0"
+                    class="px-1 py-3 scrollbar-hide w-full h-10 text-sm xs:text-base text-gray-900 placeholder:text-gray-400 bg-transparent border-0 dark:text-white focus:ring-0"
                     :placeholder="props.placeholder"
                 ></textarea>
             </div>
@@ -18,19 +17,17 @@
         <!-- File Selector -->
 
         <div class="p-4 pl-16">
-
             <img :src="inputImageUrl" v-if="inputImageUrl" alt="" class="border rounded-2xl"
                 :class="mainBorderColor">
 
             <input type="file" ref="imageInput" hidden accept="image/png, image/gif, image/jpeg"
                 @change="handleImageChange">
-
         </div>
 
         <!-- Icons -->
-        <div class="flex p-2 pl-14">
+        <div class="flex items-center p-2 pl-10 xs:pl-14">
             <div class="flex w-full text-white">
-                <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
+                <div class="py-2 px-3 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800"
                     @click="handleImageClick">
                     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
                         <g>
@@ -42,7 +39,7 @@
                     </svg>
                 </div>
 
-                <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+                <div class="py-2 px-3 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
                     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
                         <g>
                             <path
@@ -55,7 +52,7 @@
                     </svg>
                 </div>
 
-                <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+                <div class="py-2 px-3 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
                     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
                         <g>
                             <path
@@ -65,7 +62,7 @@
                     </svg>
                 </div>
 
-                <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+                <div class="py-2 px-3 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
                     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
                         <g>
                             <path
@@ -80,7 +77,7 @@
                     </svg>
                 </div>
 
-                <div class="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
+                <div class="py-2 px-3 text-blue-400 rounded-full cursor-pointer hover:bg-blue-50 dark:hover:bg-dim-800">
                     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
                         <g>
                             <path d="M-37.9 18c-.1-.1-.1-.1-.1-.2.1 0 .1.1.1.2z"></path>

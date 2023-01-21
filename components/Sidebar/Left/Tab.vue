@@ -8,7 +8,7 @@
             <slot name="icon"></slot>
         </div>
 
-        <div class="hidden ml-4 text-md xl:block" :class="textClasses">
+        <div class="ml-4 text-sm sm:text-md" :class="textClasses">
             <slot name="name"></slot>
         </div>
 

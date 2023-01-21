@@ -2,7 +2,7 @@
     <div class="p-4 border-b border-t" :class="mainBorderColor">
         <PostItemHeader :post="props.post" />
 
-        <div class="py-2 pl-12">
+        <div class="pt-4 xs:py-2 pl-9 xs:pl-12">
             <p class="flex-shrink w-auto font-normal text-gray-800 dark:text-white" :class="textSize">
                 {{ props.post.text }}
             </p>
@@ -16,10 +16,10 @@
                 <img :src="image.url" class="w-full rounded-2xl" />
             </div>
 
-            <div class="mt-2 flex justify-end items-center" :class="{ 'justify-between': props.post.replyTo }" v-if="!props.hideActions">
-                <p v-if="props.post.replyTo" class="text-xs">
+            <div class="mt-8 xs:mt-4 flex flex-col xs:flex-row justify-end items-end xs:items-center" :class="{ 'justify-between': props.post.replyTo }" v-if="!props.hideActions">
+                <p v-if="props.post.replyTo" class="text-xs mb-3 xs:mb-0">
                     <span class="text-gray-500">
-                        Reply to
+                        Replied to
                     </span>
 
                     <nuxt-link :to="replyToPostUrl" class="text-blue-400">

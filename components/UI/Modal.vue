@@ -14,7 +14,7 @@
             </TransitionChild>
 
             <div class="fixed inset-0 overflow-y-auto">
-                <div class="flex items-center justify-center min-h-full p-4 text-center">
+                <div class="flex items-center justify-center min-h-full p-2 sm:p-4 text-center">
                     <TransitionChild 
                         as="template" 
                         enter="duration-300 ease-out" 
@@ -29,7 +29,7 @@
                                 'bg-dim-700 dark': darkMode,
                                 'bg-white': !darkMode
                             }"
-                            class="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl"
+                            class="w-full max-w-md p-3 sm:p-6 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl"
                         >
                             <slot></slot>
                         </DialogPanel>

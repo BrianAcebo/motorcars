@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-around w-full max-w-[150px]">
+    <div class="flex items-center justify-between xs:justify-around w-4/5 xs:max-w-[150px]">
 
         <PostItemActionsIcon color="blue" @on-click="emits('onCommentClick')" :size="size">
             <template v-slot:icon="{ classes }">

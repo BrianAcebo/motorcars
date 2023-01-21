@@ -17,10 +17,10 @@ export default defineEventHandler(async (event) => {
         }))
     }
 
-    let user = await getUserByUsername(usernameOrEmail)
+    let user = await getUserByUsername(usernameOrEmail.toLowerCase())
 
     if (!user) {
-        user = await getUserByEmail(usernameOrEmail)
+        user = await getUserByEmail(usernameOrEmail.toLowerCase())
 
         if (!user) {
             return sendError(event, createError({

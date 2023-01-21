@@ -9,10 +9,11 @@
         <p v-if="data.formErrorMsg != ''" class="text-red text-center text-sm font-bold">{{ data.formErrorMsg }}</p>
 
         <div v-if="true" class="pt-5 space-y-6">
+            <input v-on:keyup.enter="handleLogin" type="hidden" />
+
             <UIInput v-model="data.usernameOrEmail" label="Username or Email Address" placeholder="@Motorcars" />
 
             <UIInput label="Password" placeholder="ExamplePassword123" type="password" v-model="data.password" />
-
 
             <UIButton @click="handleLogin" liquid :disabled="isButtonDisabled">
                 <div v-if="data.loading" class="w-6 h-6 flex items-center justify-center">
@@ -24,6 +25,8 @@
         </div>
 
         <div v-else class="pt-5 space-y-6">
+            <input v-on:keyup.enter="handleRegister" type="hidden" />
+
             <!-- <UIInput v-model="data.name" label="Name" placeholder="John Doe" /> -->
 
             <UIInput v-model="data.email" label="Email Address" placeholder="john@doe.com" />
@@ -66,7 +69,6 @@
 
         data.loading = true
         try {
-            console.log("logging in")
             await login({
                 usernameOrEmail: data.usernameOrEmail,
                 password: data.password
