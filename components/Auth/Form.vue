@@ -1,3 +1,5 @@
+
+
 <template>
     <div class="w-full">
         <div class="flex justify-center">
@@ -62,11 +64,9 @@
         showLoginForm: true,
         formErrorMsg: ''
     })
-
     // Login Handler
     async function handleLogin() {
         const { login } = useAuth()
-
         data.loading = true
         try {
             await login({
@@ -79,13 +79,10 @@
             data.loading = false
         }
     }
-
     // Register Handler
     async function handleRegister() {
         const { register } = useAuth()
-
         data.loading = true
-
         if (data.password === data.repeatPassword) {
             try {
                 await register({
@@ -103,7 +100,6 @@
             data.loading = false
         }
     }
-
     const isButtonDisabled = computed(() => {
         if (data.showLoginForm) { 
             return (!data.usernameOrEmail || !data.password) || data.loading
