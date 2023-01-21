@@ -19,7 +19,7 @@
                         <div :class="mainBorderColor" class="border-r sticky right-0 top-0 w-4/5 xs:w-full bg-white dark:bg-dim-900 p-4 md:p-0 scrollbar-hide overflow-scroll">
                             <div 
                                 @click="toggleSidebar('left')"
-                                class="lg:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-800 cursor-pointer"
+                                class="md:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-800 cursor-pointer"
                             >
                                 <XIcon />
                             </div>
@@ -50,7 +50,7 @@
                             <UISearchBar />
                         </div>
 
-                        <div class="flex justify-around">
+                        <div class="flex justify-around lg:px-0 xs:px-4 px-0">
                             <div class="w-full xs:w-4/6 m-0 xs:mr-7">
                                 <router-view />
                             </div>
@@ -82,7 +82,7 @@
                         >
                             <div 
                                 @click="toggleSidebar('right')"
-                                class="lg:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-400 cursor-pointer float-right"
+                                class="md:hidden block w-8 h-8 mb-3 p-2 rounded-full bg-gray-100 dark:bg-dim-400 cursor-pointer float-right"
                             >
                                 <XIcon />
                             </div>

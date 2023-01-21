@@ -3,6 +3,7 @@
         <MainSection title="Search" :loading="loading">
 
             <Head>
+                <DocumentMetaTags />
                 <Title>Search</Title>
             </Head>
 

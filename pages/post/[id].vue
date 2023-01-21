@@ -2,6 +2,7 @@
     <div>
         <MainSection title="Post" :loading="loading">
             <Head>
+                <DocumentMetaTags />
                 <Title>Post by @briancebo | Motorcars</Title>
             </Head>
 

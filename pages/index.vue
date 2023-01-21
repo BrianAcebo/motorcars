@@ -3,6 +3,7 @@
         <MainSection title="Home" :loading="loading">
 
             <Head>
+                <DocumentMetaTags />
                 <Title>Home | Motorcars</Title>
             </Head>
 

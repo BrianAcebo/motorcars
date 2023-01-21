@@ -4,7 +4,7 @@
         :class="defaultTransition, textClasses"
     >
 
-        <div class="w-6 h-6 text-dark">
+        <div class="w-6 h-6 text-dark min-w-[1.5rem]">
             <slot name="icon"></slot>
         </div>
 

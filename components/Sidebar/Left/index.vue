@@ -100,8 +100,8 @@
             </div>
 
 
-            <div class="hidden xl:block mt-12 mx-auto">
-                <UIButton liquid size="lg" @on-click="emits('onPost')">
+            <div class="hidden md:block mt-12 mx-auto">
+                <UIButton liquid size="lg" @click="handleOpenPostModal">
                     <span class="font-bold text-xs">
                         Make Post
                     </span>
@@ -115,6 +115,8 @@
 <script setup>
     import { HomeIcon } from "@heroicons/vue/solid"
     import { TruckIcon, BellIcon, InboxIcon, UserGroupIcon, UserIcon, DotsCircleHorizontalIcon, PencilIcon, GlobeAltIcon, IdentificationIcon } from "@heroicons/vue/outline"
+    
+    const { openPostModal } = usePosts()
 
     const { defaultTransition } = useTailwindConfig()
 
@@ -126,4 +128,8 @@
             required: true
         }
     })
+
+    function handleOpenPostModal() {
+        openPostModal(null)
+    }
 </script>

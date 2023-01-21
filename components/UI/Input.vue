@@ -5,6 +5,9 @@
         </label>
         <div class="mt-1">
             <input 
+                autocorrect="off" 
+                autocapitalize="off" 
+                :autocomplete="props.type"
                 :value="props.modelValue" @input="event => emits('update:modelValue', event.target.value)"
                 class="font-body block w-full px-6 py-3 border-gray-300 dark:border-white dark:bg-transparent dark:text-white focus:ring-0 focus:border-blue-500 text-sm"
                 :type="props.type" 

@@ -13,8 +13,8 @@
                 <div class="fixed inset-0 bg-black bg-opacity-25" />
             </TransitionChild>
 
-            <div class="fixed inset-0 overflow-y-auto">
-                <div class="flex items-center justify-center min-h-full p-2 sm:p-4 text-center">
+            <div class="fixed inset-0 overflow-y-auto" @click="closeModal">
+                <div class="flex items-center justify-center min-h-full p-2 sm:p-4 text-center" @click.stop="">
                     <TransitionChild 
                         as="template" 
                         enter="duration-300 ease-out" 
