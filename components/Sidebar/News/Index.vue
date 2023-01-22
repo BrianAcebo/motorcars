@@ -1,44 +1,44 @@
 <template>
     <div clas="flex flex-col sticky top-9">
 
-        <!-- Preview Card : What's happening -->
-        <SidebarRightPreviewCard title="You Might Like">
-            <SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
+        <!-- Preview Card : You might like -->
+        <SidebarNewsPreviewCard title="You Might Like">
+            <SidebarNewsPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
                 <div>
-                    <h2 class="font-bold text-gray-800 text-md dark:text-white">{{ whatsHappening.title }}</h2>
+                    <p class="font-semibold text-gray-800 text-md dark:text-white">{{ whatsHappening.title }}</p>
 
                     <p class="text-xs text-gray-400">
                         {{ whatsHappening.count }}
                     </p>
                 </div>
-            </SidebarRightPreviewCardItem>
-        </SidebarRightPreviewCard>
+            </SidebarNewsPreviewCardItem>
+        </SidebarNewsPreviewCard>
 
         <!-- Preview Card : What's happening -->
-        <SidebarRightPreviewCard title="What's happening">
-            <SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
+        <SidebarNewsPreviewCard title="What's happening">
+            <SidebarNewsPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
                 <div>
-                    <h2 class="font-bold text-gray-800 text-md dark:text-white">{{ whatsHappening.title }}</h2>
+                    <p class="font-semibold text-gray-800 text-md dark:text-white">{{ whatsHappening.title }}</p>
 
                     <p class="text-xs text-gray-400">
                         {{ whatsHappening.count }}
                     </p>
                 </div>
-            </SidebarRightPreviewCardItem>
-        </SidebarRightPreviewCard>
+            </SidebarNewsPreviewCardItem>
+        </SidebarNewsPreviewCard>
 
-        <!-- Preview Card : What's happening -->
-        <SidebarRightPreviewCard title="Recent News">
-            <SidebarRightPreviewCardItem>
+        <!-- Preview Card : Recent news -->
+        <SidebarNewsPreviewCard title="Recent News">
+            <SidebarNewsPreviewCardItem>
                 <div>
-                    <h2 class="font-bold text-gray-800 text-md dark:text-white">SpaceX</h2>
+                    <p class="font-semibold text-gray-800 text-md dark:text-white">SpaceX</p>
 
                     <p class="text-xs text-gray-400">
                         18.k Posts
                     </p>
                 </div>
-            </SidebarRightPreviewCardItem>
-        </SidebarRightPreviewCard>
+            </SidebarNewsPreviewCardItem>
+        </SidebarNewsPreviewCard>
 
     </div>
 </template>

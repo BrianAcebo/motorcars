@@ -1,11 +1,11 @@
 <template>
-    <div :class="{ 'dark': darkMode }">
+    <div :class="{ 'dark': darkMode }" class="overflow-hidden">
         <div class="bg-white dark:bg-dim-900">
 
             <LoadingPage v-if="isAuthLoading" />
 
             <!-- App -->
-            <div v-else-if="user" clas="min-h-full">
+            <div v-else-if="user && user.completed_onboarding" clas="min-h-full">
 
                 <div class="flex justify-around mx-auto lg:max-w-[1440px] lg:px-6">
 
@@ -14,7 +14,7 @@
                         id="leftMain"
                         @click="toggleSidebar('left', $event)"
                         :class="[defaultTransition, sidebarLeftClasses]"
-                        class="flex justify-start bg-black bg-opacity-25 w-full xs:w-2/3 md:w-1/6 scrollbar-hide overflow-scroll h-screen top-0 fixed md:static z-50 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 dark:text-white"
+                        class="flex justify-start bg-black bg-opacity-25 w-full xs:w-2/3 md:w-1/6 scrollbar-hide overflow-scroll h-screen top-0 fixed md:static z-20 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 dark:text-white"
                     >
                         <div :class="mainBorderColor" class="border-r sticky right-0 top-0 w-4/5 xs:w-full bg-white dark:bg-dim-900 p-4 md:p-0 scrollbar-hide overflow-scroll">
                             <div 
@@ -28,12 +28,12 @@
                     </div>
 
                     <!-- Main content -->
-                    <main class="w-full md:w-4/6 px-0 md:px-7 pt-0 md:pt-8">
+                    <main class="w-full md:w-4/6 px-0 md:px-7 pt-0 md:pt-8 pb-8 bg-gray-50 dark:bg-dim-900">
                         <div
                             :class="[defaultTransition, mobileTopNavPadding]"
-                            class="z-40 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 flex md:hidden sticky top-0 w-full items-center justify-between text-white"
+                            class="z-10 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 flex md:hidden sticky top-0 w-full items-center justify-between text-white"
                         >
-                            <div class="w-6 h-6" @click="toggleSidebar('left')">
+                            <div class="w-6 h-6 text-gray-900" @click="toggleSidebar('left')">
                                 <UserIcon />
                             </div>
 
@@ -41,7 +41,7 @@
                                 <LogoMain />
                             </div>
                             
-                            <div class="w-6 h-6" @click="toggleSidebar('right')">
+                            <div class="w-6 h-6 text-gray-900" @click="toggleSidebar('right')">
                                 <MenuAlt4Icon />
                             </div>
                         </div>
@@ -74,11 +74,11 @@
                         id="rightMain"
                         @click="toggleSidebar('right', $event)"
                         :class="[defaultTransition, sidebarRightClasses]" 
-                        class="flex justify-end bg-black bg-opacity-25 w-full xs:w-2/3 md:w-1/4 mt-0 md:mt-7 h-screen top-0 fixed md:static z-50 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 dark:text-white"
+                        class="flex justify-end bg-black bg-opacity-25 w-full xs:w-2/3 md:w-1/4 mt-0 h-screen top-0 fixed md:static z-20 bg-white/80 backdrop-blur-md dark:bg-dim-900/80 dark:text-white"
                     >
                         <div
                             :class="mainBorderColor" 
-                            class="cursor-pointer border-l sticky right-0 top-0 w-4/5 xs:w-full bg-white dark:bg-dim-900 p-4 md:p-0 scrollbar-hide overflow-scroll"
+                            class="md:pt-7 md:px-4 cursor-pointer border-l sticky right-0 top-0 w-4/5 xs:w-full bg-white dark:bg-dim-900 p-4 md:p-0 scrollbar-hide overflow-scroll"
                         >
                             <div 
                                 @click="toggleSidebar('right')"
@@ -94,6 +94,11 @@
                 </div>
 
 
+            </div>
+
+            <!-- Onboarding -->
+            <div v-else-if="user && !user.completed_onboarding" clas="min-h-full">
+                onboarding
             </div>
 
             <AuthPage v-else />

@@ -1,12 +1,12 @@
 <template>
-    <div clas="flex flex-col">
+    <div>
         <div 
             class="flex flex-row items-center justify-center px-2 py-2 mt-auto mb-5 rounded-full cursor-pointer w-full hover:bg-gray-100 dark:hover:bg-dim-800"
             :class="defaultTransition" 
             @click="emits('onLogout')"
         >
             <div class="flex flex-row">
-                <img :src="props.user.profileImage" class="w-10 h-10 rounded-full">
+                <img :src="props.user.profileImage" class="w-10 h-10 rounded-full border border-white-200 dark:border-gray-700">
                 <div class="flex-col ml-2">
                     <h1 class="text-sm font-bold text-gray-800 dark:text-white">
                         <!-- {{ user.name }} -->

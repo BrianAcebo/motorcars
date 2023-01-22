@@ -8,28 +8,24 @@ export default defineEventHandler(async (event) => {
     const { username, email, password, repeatPassword, name } = body
 
     if (!email || !password || !repeatPassword) {
-        return sendError(event, createError({ statusCode: 400, statusMessage: 'Invalid params' }))
+        return sendError(event, createError({ statusCode: 400, statusMessage: 'Please fill fields out entirely' }))
     }
-
-    // if (!username || !email || !password || !repeatPassword || !name) {
-    //     return sendError(event, createError({ statusCode: 400, statusMessage: 'Invalid params' }))
-    // }
 
     if (password !== repeatPassword) {
         return sendError(event, createError({ statusCode: 400, statusMessage: 'Passwords do not match' }))
     }
 
     const userData = {
-        //username,
         email,
         password,
-        //name,
-        profileImage: 'https://picsum.photos/200/200'
+        profileImage: 'https://res.cloudinary.com/motorcars-cloudinary/image/upload/v1674419596/no-profile-image.jpg'
     }
 
-    //const emailExists = await getUserByEmail(email)
+    const emailExists = await getUserByEmail(email)
 
-    //console.log(emailExists)
+    if (emailExists) {
+        return sendError(event, createError({ statusCode: 400, statusMessage: 'That email address is already taken' }))
+    }
 
     const user = await createUser(userData)
 

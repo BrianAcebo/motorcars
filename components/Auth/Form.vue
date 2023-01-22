@@ -10,7 +10,7 @@
 
         <p v-if="data.formErrorMsg != ''" class="text-red text-center text-sm font-bold">{{ data.formErrorMsg }}</p>
 
-        <div v-if="true" class="pt-5 space-y-6">
+        <div v-if="data.showLoginForm" class="pt-5 space-y-6">
             <input v-on:keyup.enter="handleLogin" type="hidden" />
 
             <UIInput v-model="data.usernameOrEmail" label="Username or Email Address" placeholder="@Motorcars" />
@@ -91,7 +91,10 @@
                     repeatPassword: data.repeatPassword
                 })
             } catch (error) {
-                console.log(error)
+                console.log(error.toString())
+                if (error.toString().toLowerCase().includes('email')) {
+                    data.formErrorMsg = 'That email address is already taken.'
+                }
             } finally {
                 data.loading = false
             }

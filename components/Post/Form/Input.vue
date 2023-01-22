@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="flex items-center flex-shrink-0 p-4 pb-0">
-            <div class="flex w-9 items-top">
-                <img :src="props.user?.profileImage" alt="" class="inline-block w-7 h-7 xs:w-9 xs:h-9 rounded-full">
+            <div class="flex items-top mr-2 w-10">
+                <img :src="props.user?.profileImage" alt="" class="inline-block w-10 h-10 xs:w-9 xs:h-9 rounded-full border border-white-200 dark:border-gray-700">
             </div>
 
             <div class="w-full flex items-center">
