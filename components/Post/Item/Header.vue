@@ -2,7 +2,7 @@
     <div class="flex items-center">
 
         <nuxt-link :to="'/profile/' + author.handle">
-            <img class="xs:w-9 xs:h-9 w-7 h-7 rounded-full" :src="author.profileImage" alt="">
+            <img class="xs:w-9 xs:h-9 w-7 h-7 rounded-full border border-white-200 dark:border-gray-700" :src="author.profileImage" alt="">
         </nuxt-link>
 
         <div class="ml-2 xs:ml-3 flex flex-col xs:flex-row items-start xs:items-center justify-start xs:justify-center text-sm">

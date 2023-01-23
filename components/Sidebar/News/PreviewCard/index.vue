@@ -1,9 +1,9 @@
 <template>
-    <div class="mb-7 overflow-hidden border rounded-2xl bg-gray-50 dark:bg-dim-700" :class="mainBorderColor">
+    <div class="mb-7 overflow-hidden border rounded-2xl bg-white dark:bg-dim-700" :class="mainBorderColor">
 
-        <h1 class="p-3 text-xl font-extrabold text-gray-900 border-b dark:text-white" :class="mainBorderColor">
+        <h4 class="p-3 text-xl font-semibold text-gray-900 border-b dark:text-white" :class="mainBorderColor">
             {{ props.title }}
-        </h1>
+        </h4>
 
         <slot></slot>
 
@@ -11,7 +11,6 @@
             :class="defaultTransition">
             Show more
         </div>
-
 
     </div>
 </template>

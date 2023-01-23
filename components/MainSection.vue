@@ -1,6 +1,6 @@
 <template>
-    <div class="border" :class="mainBorderColor">
-        <div class="flex items-center static md:sticky top-9 px-4 py-3 bg-white/80 backdrop-blur-md dark:bg-dim-900/80">
+    <div class="border bg-white dark:bg-dim-900 overflow-y-scroll scrollbar-hide max-h-screen" :class="mainBorderColor">
+        <div class="flex items-center static md:sticky top-0 px-4 py-3 bg-white/80 backdrop-blur-md dark:bg-dim-900/80">
             <a 
                 :class="mainBorderColor"
                 class="dark:text-white mr-3" 
